@@ -1,0 +1,22 @@
+databases:
+  - name: category_servicedb
+    plan: free
+    databaseName: category_service
+    user: category_service
+
+services:
+  - type: web
+    plan: free
+    name: category_service
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn category_service.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: category_service
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
