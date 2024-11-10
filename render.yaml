@@ -1,8 +1,8 @@
-databases:
-  - name: category_servicedb
-    plan: free
-    databaseName: category_service
-    user: category_service
+# databases:
+#   - name: category_servicedb
+#     plan: free
+#     databaseName: category_service
+#     user: category_service
 
 services:
   - type: web
@@ -13,9 +13,7 @@ services:
     startCommand: "python -m gunicorn category_service.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: category_service
-          property: connectionString
+        value: "postgresql://aitool_categorydb_owner:qoO4pc2nWrki@ep-weathered-forest-a593ju2x.us-east-2.aws.neon.tech/aitool_categorydb?sslmode=require"
       - key: SECRET_KEY
         generateValue: true
       - key: WEB_CONCURRENCY
