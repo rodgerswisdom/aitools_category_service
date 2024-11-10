@@ -27,8 +27,8 @@ SECRET_KEY = 'django-insecure-h(9+v6@(%^#v23gi+tu_!oj45rxm*2r*jgs*m^)0rgz#m#)-)z
 DEBUG = True
 
 # https://docs.djangoproject.com/en/3.0/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', '0.0.0.0']
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', '0.0.0.0']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
