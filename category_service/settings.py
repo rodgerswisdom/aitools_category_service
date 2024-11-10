@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-h(9+v6@(%^#v23gi+tu_!oj45rxm*2r*jgs*m^)0rgz#m#)-)z
 DEBUG = True
 
 # https://docs.djangoproject.com/en/3.0/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', '0.0.0.0']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -76,7 +77,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'category_service.wsgi.application'
+# WSGI_APPLICATION = 'category_service.wsgi.application'
+WSGI_APPLICATION = 'category_service.wsgi.app'
 
 
 # Database
@@ -94,7 +96,8 @@ DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
         # default='postgresql://postgres:postgres@localhost:5432/category_service',
-        default='postgresql://tool_service:aijTGjtjVhSnj0WhTZAy3MhEVSH87NIW@dpg-csbqt7btq21c73a6fit0-a.oregon-postgres.render.com/tool_service',
+        # default='postgresql://tool_service:aijTGjtjVhSnj0WhTZAy3MhEVSH87NIW@dpg-csbqt7btq21c73a6fit0-a.oregon-postgres.render.com/tool_service',
+        default='postgresql://aitool_categorydb_owner:qoO4pc2nWrki@ep-weathered-forest-a593ju2x.us-east-2.aws.neon.tech/aitool_categorydb?sslmode=require',
         conn_max_age=600
     )
 }
